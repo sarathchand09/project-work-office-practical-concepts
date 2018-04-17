@@ -1,4 +1,4 @@
-**Angular frameworks used:**
+Angular frameworks used:
 
   frameworks like adminlte, primeNg, loadAsh , ionicons , filesaver.js, chart.js (HighCharts - node module in typescript).
 
@@ -14,3 +14,47 @@ you can write a generic document url using javascript object - in the constructo
  constructor(@Inject(Document)private document){
    url = document.location.protocol + '//' +document.location.hostname +':' + document.location.port
  }
+ 
+ consider also using jsonp in the new angular to get rid of CORS.
+ 
+ @ViewChild('something')private fileC0ntent --> <input type='' #something> to capture input
+ 
+ if hte above something is a file, you can use fileC0ntent.nativeElement.files to get the files uploaded, 
+ if its a single fule then fileC0ntent.nativeElement.files[0] this will be of typw File.
+ you can wrap this in a formdata,  data = new FormData(); data.append('file', files[0]);
+ 
+ fileC0ntent.nativeElement.files[0].name gives the name of the file with extension.
+  
+ its good to send these files and other data  in a formdata.
+ 
+ while sending formdata to backend use headers = new Headers({'content-type':'multipart/form-data'})
+ 
+ Routing:
+ 
+ normal routing is simple and straight forward., but with multi routing i mean having multiple modules, we should be careful while 
+ giving child module routes. there shouldnt be any '/' at the start of route url. as '/' indicates redirect to the main page.
+ 
+ route = {
+ path:'a/b',
+ component:defaultcomponent,
+ children:[
+  {path:'c/d', component: 1component}
+ ]
+ }
+ 
+ now as we didnt used the '/' , the above component will be substituted in child router-outlet , instead of the main module router-outlet,
+ this is the key here.
+ 
+ handing file download:
+ 
+ reactive form data:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
