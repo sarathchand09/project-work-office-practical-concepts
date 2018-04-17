@@ -1,4 +1,16 @@
-Angular UI:
-  frameworks like adminlte, primeNg, loadAsh , ionicons , chart.js (HighCharts - node module in typescript).
-  
+Angular frameworks used:
+
+  frameworks like adminlte, primeNg, loadAsh , ionicons , filesaver.js, chart.js (HighCharts - node module in typescript).
+
+adding modules in angular:
+
+if the node module is available in typescript, then ther will be a module.ts you just need to add that module in our app modules.
+if its just a javascipt or css like jquery or bootstrap we need to add them in .angular-cli.json
+
+services:
+
+you can write a generic document url using javascript object - in the constructor use like :  
  
+ constructor(@Inject(Document)private document){
+   url = document.location.protocol + '//' +document.location.hostname +':' + document.location.port
+ }
