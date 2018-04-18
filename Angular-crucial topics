@@ -1,4 +1,5 @@
-Angular frameworks used:
+
+()Angular frameworks used:
 
   frameworks like adminlte, primeNg, loadAsh , ionicons , filesaver.js, chart.js (HighCharts - node module in typescript).
 
@@ -45,7 +46,13 @@ you can write a generic document url using javascript object - in the constructo
  now as we didnt used the '/' , the above component will be substituted in child router-outlet , instead of the main module router-outlet,
  this is the key here.
  
- handing file download:
+ handing file download:(zip)
+  downloading normal files is straightforward, but with zip files its tricky with fileSaver,
+  refer to the below solution:
+  https://stackoverflow.com/questions/42782113/angular-2-downloading-a-zip-as-blob-fails/
+  the result of the above set in a blob object, and saveas will download zip.{applicaiton/zip} use this while setting in blob function.
+  blob = new Blob(result, {type:application/zip});
+  saveas(blob, filename);
  
  reactive form data:
  
