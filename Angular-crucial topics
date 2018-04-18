@@ -1,5 +1,4 @@
-
-()Angular frameworks used:
+Angular frameworks used:
 
   frameworks like adminlte, primeNg, loadAsh , ionicons , filesaver.js, chart.js (HighCharts - node module in typescript).
 
@@ -55,6 +54,21 @@ you can write a generic document url using javascript object - in the constructo
   saveas(blob, filename);
  
  reactive form data:
+ 
+ we can use  for form-submissions, this reactive form data is good for capturing data from forms.
+ 
+ private formVar:FormGroup;
+ this.formVar.controls[somefields].setvalue to set the value.
+  this.formVar.controls[somefields].value to get the value.
+  
+  to bind form to inputs in form see below - 
+  <form [formGroup]="formVar">
+  <input class="form-control" type="text" [formControl]="formVar.controls[somefields]">
+  //if input is not entered we can check like ngIf="formVar.get("somefields").hasError("required") && formVar.get("somefields").touched"
+  </form>
+  
+  this is easy as well!
+ 
  
  
  
