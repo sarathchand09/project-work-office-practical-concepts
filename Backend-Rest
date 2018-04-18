@@ -1,0 +1,24 @@
+UI-ROUTER-Servlet: 
+
+   for ui page requests we need a servlet to capture them forward, as backend resteservlet is used to receive only
+                   rest calls from UI or some other system.
+                   
+web.xml - 
+
+<servlet>
+<servlet-name> UIROUTERServlet </servlet-name>
+<servlet-class> com.dummy.UIServletClass</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name> UIROUTERServlet </servlet-name>
+<servlet-pattern> /something/*</servlet-pattern>
+</servlet-mapping>
+
+public class UIRouterServlet extends HttpServlet {
+
+ public void service ( httpservletreq req,httpservletres res) {
+   getServletContent().getRequestDispatcher("/").forward(req, res);
+ }
+ 
+}
