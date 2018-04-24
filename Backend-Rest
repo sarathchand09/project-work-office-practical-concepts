@@ -1,3 +1,4 @@
+
 UI-ROUTER-Servlet: 
 
    for ui page requests we need a servlet to capture them forward, as backend resteservlet is used to receive only
@@ -22,3 +23,22 @@ public class UIRouterServlet extends HttpServlet {
  }
  
 }
+
+consumes Types:
+
+we can write multiple consumes types with comma seperated!
+
+Receive files in REST:
+
+we can use  @RequestParam("file")MultipartFile file as parameter to receive files which were sent as multipart from UI.
+here the name in UI is set as file.
+consumes can also be ALL_VALUES, based on requirement.
+
+Send files in REST:
+
+use ResponseEntity<OctetStream> as return for downloading csv or any other files.
+
+
+
+
+
