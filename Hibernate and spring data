@@ -1,1 +1,55 @@
 creating platform transaction manager:
+
+refer to baeldung: http://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+
+@Bean
+public PlatformTransactionManager getPTManager(){
+ new jpatransactionManager().setEntityManagerFactory(factory);
+}
+
+@Bean
+   public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+      LocalContainerEntityManagerFactoryBean em 
+        = new LocalContainerEntityManagerFactoryBean();
+      em.setDataSource(dataSource());
+      em.setPackagesToScan(new String[] { "org.baeldung.persistence.model" });
+ 
+      JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+      em.setJpaVendorAdapter(vendorAdapter);
+      em.setJpaProperties(additionalProperties());
+ 
+      return em;
+   }
+   
+   spring-data-repo:
+   
+   @Repository for spring data repository.
+   
+   @Transactional
+   @Modifying
+   @Query("some query")
+   public entity getEntitysomeMethod(){
+   }
+   
+   while writing query we can also query for entity
+   
+   ***Important here is that you need to include package name and class name in query.
+   @Query("select new com.csg.pack.stuff.EntityClass(E.NAME,E.AGE) from event E where age>20 ")
+   
+   
+   To Inject EntityManager with the above configuration you can just do - @Autowired private EntityManager eMnagaer.
+   
+   
+   Entity Tricks:
+   
+   @CreatedBy
+   @CreatedDate
+   @LastModifiedBy
+   @LastModifiedDate
+   @EntityListers(AuditingEntityListener.class)
+   @Embeddable
+   @MappedSuperClass
+   
+   
+   
+   
