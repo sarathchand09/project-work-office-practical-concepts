@@ -1,4 +1,3 @@
-
 UI-ROUTER-Servlet: 
 
    for ui page requests we need a servlet to capture them forward, as backend resteservlet is used to receive only
@@ -32,6 +31,8 @@ Receive files in REST:
 
 we can use  @RequestParam("file")MultipartFile file as parameter to receive files which were sent as multipart from UI.
 here the name in UI is set as file.
+we can also have other params with MultipartFile like , @RequestParam("file")MultipartFile file, @ReqParam String payload,
+ @ReqParam(required=false) String payload as method parameters.
 consumes can also be ALL_VALUES, based on requirement.
 
 Send files in REST:
