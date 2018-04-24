@@ -1,1 +1,11 @@
+enum to json by jackson:
+
+enum should be like below:
+
+@JsonFormat(shape=JSONFormat.Shape.STRING)
+public enum Status implements Serializable {
+a,b,c;
+}
+
+
 
