@@ -1,0 +1,24 @@
+spring:
+
+load properties with spring: (these are not only spring related but also other general properties that might be used in application)
+
+@PropertySource({"file:app.properties","file:sys.properties"})
+
+now to read a property we use  @Value("${propName}") private String value;
+
+EventHandler and Listeners Spring:
+
+this is a good feature,
+@EnableAsync will enable async event handling with spring and dispatches multiple threads or new thread where ever its required.
+@EventListener(condition="#something"=='something') and this will listen to events which are published using spring
+publisher.publishEvent()
+
+aop:
+
+spring has aop with @pointcut  and @Aspect .
+but we can also use AspectJ from eclipse compile time aspectJ, we good to be used whenever required.
+
+@transactional is used for transcations which opens and closes session and commit sql around method calls and also rollbacks in case of excetions
+is a good example of aspect oriented programming.
+
+
