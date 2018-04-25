@@ -1,0 +1,25 @@
+generic interface encapsulate:
+
+public interface InputValidator<T>{
+
+ boolean validate(T t) throws Exception;
+
+}
+
+public class InputValidatorImpl1 implements  InputValidator<Crusor>{
+
+@override
+ boolean validate(Crusor t) throws Exception{
+ return t.getState();
+ }
+
+}
+
+public class InputValidatorImpl2 implements  InputValidator<Kooklet>{
+
+@override
+ boolean validate(Kooklet t) throws Exception{
+ return t.getState();
+ }
+
+}
