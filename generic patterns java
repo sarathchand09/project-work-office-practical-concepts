@@ -27,6 +27,10 @@ generic JAXB Marshaller:
 
 public class JAXBHelper {
 
+//for caching and performance improvement
+Map<Class, JAXBContext> map = new ConcurrentHashMap();
+//point is JAXBContext.newInstance(t.getClass()); is fixed, so dont create it everytime , just cache in a map for performance.
+
 public <T> String jaxbObjectToString(T t){
  JAXBContext context = JAXBContext.newInstance(t.getClass());
  Marshaller m = context.createMarshaller();
@@ -36,5 +40,14 @@ public <T> String jaxbObjectToString(T t){
 }
 
 //same for unmarshaller as well
-
+public <T> String jaxbObjectToString(T t,String xmlPayload){
+ JAXBContext context = JAXBContext.newInstance(t.getClass());
+ UnMarshaller m = context.createUnMarshaller();
+return m.marshall(t, IOUtils.toInputStream(xmlPayload));
 }
+}
+
+for better performance please cache the JAXBContext in a map, as it is same for a particular Class type.
+Map<Class, JAXBContext> map = new ConcurrentHashMap(); for multithreaded env use COncurrent
+
+
