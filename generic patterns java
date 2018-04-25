@@ -21,5 +21,20 @@ public class InputValidatorImpl2 implements  InputValidator<Kooklet>{
  boolean validate(Kooklet t) throws Exception{
  return t.getState();
  }
+}
+
+generic JAXB Marshaller:
+
+public class JAXBHelper {
+
+public <T> String jaxbObjectToString(T t){
+ JAXBContext context = JAXBContext.newInstance(t.getClass());
+ Marshaller m = context.createMarshaller();
+ StringWriter stringWritter = new StringWriter();
+ m.marshall(t, stringWritter);
+ return stringWritter.toString();
+}
+
+//same for unmarshaller as well
 
 }
