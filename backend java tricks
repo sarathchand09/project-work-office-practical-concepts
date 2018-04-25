@@ -7,5 +7,11 @@ public enum Status implements Serializable {
 a,b,c;
 }
 
+Dates between ui and backend: 
+we can directly send dates between UI and backend , just send the date object as it is to backend and it should be date
+in backemd as well.
+
+filter Query: 
+
 
 
